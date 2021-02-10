@@ -1,7 +1,14 @@
 import React from 'react'
 import logo from '../images/colorado-logo.png';
+import { Link, Route, Switch } from 'react-router-dom';
+import Login from './Login'
 
 export default function MainPage() {
+
+  const onClick = () => {
+
+  }
+
   return (
     <>
       <header class="flex justify-between ml-12 mt-8 mb-8 mr-12">
@@ -17,9 +24,13 @@ export default function MainPage() {
           </p>
         </div>
         <div class="flex items-center">
-          <button class="m-4 pt-1 pb-1 pl-4 pr-4 text-white bg-yellow-400 font-sans Roboto font-semibold rounded-lg">
+        <Link to='/login'>
+          <button 
+            class="m-4 pt-1 pb-1 pl-4 pr-4 text-white bg-yellow-400 font-sans Roboto font-semibold rounded-lg"
+          >
             Login
           </button>
+        </Link>
           <button class="m-4 pt-1 pb-1 pl-2 pr-2 text-white bg-yellow-400 font-sans Roboto font-semibold rounded-lg">
             Sign up
           </button>
@@ -33,10 +44,12 @@ export default function MainPage() {
       </section>
       <section class="flex justify-between m-8 h-48 divide-x divide-gray-300">
         <div class="flex justify-center items-center h-full w-2/4">
-          <button 
-            class="m-4 pt-1 pb-1 pl-2 pr-2 text-white bg-blue-700 font-sans Roboto font-semibold rounded-lg">
-            Get Started
-          </button>
+          <Link to='/getstarted'>
+            <button 
+              class="m-4 pt-1 pb-1 pl-2 pr-2 text-white bg-blue-700 font-sans Roboto font-semibold rounded-lg">
+              Get Started
+            </button>
+          </Link>
           <button class="m-4 pt-1 pb-1 pl-9 pr-9 text-white font-sans Roboto font-semibold bg-green-700 rounded-lg">
             FAQ
           </button>
