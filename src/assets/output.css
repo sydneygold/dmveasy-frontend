@@ -11214,6 +11214,10 @@ video {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.font-Josefin\ Slab {
+  font-family: Josefin Slab, sans;
+}
+
 .font-thin {
   font-weight: 100;
 }
@@ -39811,6 +39815,10 @@ video {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .sm\:font-Josefin\ Slab {
+    font-family: Josefin Slab, sans;
+  }
+
   .sm\:font-thin {
     font-weight: 100;
   }
@@ -68363,6 +68371,10 @@ video {
 
   .md\:font-mono {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .md\:font-Josefin\ Slab {
+    font-family: Josefin Slab, sans;
   }
 
   .md\:font-thin {
@@ -96919,6 +96931,10 @@ video {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .lg\:font-Josefin\ Slab {
+    font-family: Josefin Slab, sans;
+  }
+
   .lg\:font-thin {
     font-weight: 100;
   }
@@ -125473,6 +125489,10 @@ video {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .xl\:font-Josefin\ Slab {
+    font-family: Josefin Slab, sans;
+  }
+
   .xl\:font-thin {
     font-weight: 100;
   }
@@ -154025,6 +154045,10 @@ video {
 
   .\32xl\:font-mono {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .\32xl\:font-Josefin\ Slab {
+    font-family: Josefin Slab, sans;
   }
 
   .\32xl\:font-thin {

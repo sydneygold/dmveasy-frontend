@@ -1,11 +1,10 @@
 import './assets/output.css'
+import MainPage from './components/MainPage'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p class="font-monospace ...">Cats are better than dogs.</p>
-      </header>
+      <MainPage />
     </div>
   );
 }
