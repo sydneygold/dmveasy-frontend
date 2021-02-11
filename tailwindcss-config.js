@@ -9,7 +9,11 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      zIndex: {
+        '-10': '-10'
+      }
+    },
   },
   plugins: [],
 }
