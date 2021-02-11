@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/colorado-logo.png';
 
-export default function Login() {
+export default function Login({login}) {
+
+    const [loginData, setLoginData] = useState({
+        email: '',
+        password: ''
+    });
+
+    const onChange = (event) => {
+        setLoginData({...loginData, [event.target.name]: event.target.value})
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        login(loginData.email, loginData.password)
+        console.log('logged in')
+    }
+
     return (
         <div 
             className='container max-w-md mx-auto md:max-w-2xl mt-16'
@@ -18,7 +34,9 @@ export default function Login() {
             </div>
             <form 
                 className='flex flex-col items-center md:shadow-md lg:shadow-md'
-                id='login-form'>
+                id='login-form'
+                onSubmit={handleSubmit}
+            >
                 <h1 
                     className='font-serif Georgia font-black text-3xl p-8'
                 >
@@ -31,6 +49,9 @@ export default function Login() {
                     <input
                         className='border-b-4 border-gray-200 w-3/4 focus:outline-none focus:border-purple-400 transition duration-500 placeholder-grey-300'
                         type='text'
+                        name='email'
+                        value={loginData.email}
+                        onChange={(event) => onChange(event)}
                         placeholder='email'
                     />
                 </div>
@@ -40,6 +61,9 @@ export default function Login() {
                     <input 
                         className='border-b-4 border-gray-200 w-3/4 focus:outline-none focus:border-purple-400 transition duration-500 placeholder-grey-300'
                         type='password'
+                        name='password'
+                        value={loginData.password}
+                        onChange={(event) => onChange(event)}
                         placeholder='password'
                     />
                 </div>
