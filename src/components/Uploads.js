@@ -8,55 +8,34 @@ const Uploads = () => {
 
   const [ image, setImage] = useState(null);
 
-//   const setAuthorizationHeader = (token) => {
-//     const FBIdToken = `Bearer ${token}`
-//     localStorage.setItem('FBIdToken', FBIdToken)
-//     axios.defaults.headers.common['Authorization'] = FBIdToken
-// }
-
-  const onFormSubmit = (event) => {
+  //we need to set up an error that won't let them send an image, could conditionally render the button to upload to only show if our image state is != null
+  const uploadImage = (event) => {
     event.preventDefault();
-    const formData = new FormData();
-
-    console.log(event.target.files[0])
-    // let currentFormData = formData.append('document', event.target.files[0])
-
-    fetch('http://localhost:5001/dmveasy-a82ea/us-central1/uploadImage', { mode: 'no-cors'}, {
-      method: 'POST',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST',
-        'Content-Type': 'multipart/form-data',
-        'Authorization': 'Bearer' + localStorage.getItem('token')
-      },
-      body: JSON.stringifyf(formData)
-    })
-    .then(result => console.log('the result', result.body))
     
-    // formData.append('myImage', file);
-    //     const config = {
-    //         headers: {
-    //           'Access-Control-Allow-Origin': '*',
-    //           'Access-Control-Allow-Methods': 'POST',
-    //           'Content-Type': 'multipart/form-data'
-    //         }
-    //     };
-    //     axios.post("http://localhost:5001/dmveasy-a82ea/us-central1/uploadImage", formData, config)
-    //       .then((response) => {
-    //           alert("The file is successfully uploaded");
-    //       }).catch((error) => {
-    //     });
-  }
+    const formData = new FormData();
+    
+    formData.append('userId', userId);
+    formData.append('folder', folder);
+    formData.append('image', image.image, image.image.name);
+
+    fetch('http://localhost:5001/dmveasy-a82ea/us-central1/uploadImage', {
+      method: 'POST',
+      headers: {},
+      body: formData
+    })
+    .then(response => response.json())
+    .then(result => console.log(result))
+  };
 
   const onChange = (event) => {
     setImage({
       image: event.target.files[0]
-    })
-  }
+    });
+  };
 
   return (
     <div>
-      <form onSubmit={onFormSubmit}>
+      <form id="form" name="myform" onSubmit={uploadImage}>
         <input type='file' name='image' onChange={onChange}></input>
         <button type='submit'>Convert</button>
       </form>
