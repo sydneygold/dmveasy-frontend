@@ -2,6 +2,7 @@ import './assets/output.css';
 import { useState } from 'react';
 import MainPage from './components/MainPage';
 import Login from './components/Login';
+import Signup from './components/Signup';
 import GetStarted from './components/GetStarted';
 import { Route, Switch } from 'react-router-dom';
 
@@ -11,6 +12,33 @@ function App() {
 
   const [userId, setUserId] = useState('')
 
+  const signup = (email, password) => {
+    console.log(email, password)
+    fetch('http://localhost:5001/dmveasy-a82ea/us-central1/signUp', {
+      method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email,
+                password,
+            }),
+    })
+    .then((response) => {
+      console.log('signup response', response);
+      return response.json();
+    })
+    .then((result) => {
+        if(result.token){
+          localStorage.setItem('token', result.token)
+          setUserId(result.userId);
+        } else {
+          return console.log('no signup for you')
+        }
+    });
+  }
+  
   const login = (email, password) => {
     console.log('email + password', email, password)
     fetch(baseURL, {
@@ -37,7 +65,6 @@ function App() {
       });
     }
 
-
   return (
     <div className="App">
       <Switch>
@@ -47,6 +74,10 @@ function App() {
           />
         <Route path='/login' render={(routerProps) => {
           return <Login login={login} {...routerProps}/> 
+        }} 
+          />
+        <Route path='/signup' render={(routerProps) => {
+          return <Signup signup={signup} {...routerProps}/> 
         }} 
           />
         <Route path='/getstarted' render={(routerProps) => {

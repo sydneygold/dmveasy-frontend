@@ -3,20 +3,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/colorado-logo.png';
 
-export default function Login({login}) {
+export default function Signup({signup}) {
 
-    const [loginData, setLoginData] = useState({
+    const [signupData, setSignupData] = useState({
         email: '',
         password: ''
     });
 
     const onChange = (event) => {
-        setLoginData({...loginData, [event.target.name]: event.target.value})
+        setSignupData({...signupData, [event.target.name]: event.target.value})
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        login(loginData.email, loginData.password)
+        signup(signupData.email, signupData.password)
         console.log('logged in')
     }
 
@@ -24,7 +24,7 @@ export default function Login({login}) {
         <div 
             className='container max-w-md mx-auto md:max-w-2xl mt-16'
         >
-            <div className='flex justify-center logo-login'>
+            <div className='flex justify-center logo-signup'>
                 <img 
                     className="h-24"
                     src={logo}
@@ -32,13 +32,13 @@ export default function Login({login}) {
             </div>
             <form 
                 className='flex flex-col items-center md:shadow-md lg:shadow-md'
-                id='login-form'
+                id='signup-form'
                 onSubmit={handleSubmit}
             >
                 <h1 
                     className='font-serif Georgia font-black text-3xl p-8'
                 >
-                    Login
+                    Sign up!
                 </h1>
                 <div 
                     className='flex space-x-2 md:space-x-8 w-1/2 m-5'
@@ -48,7 +48,7 @@ export default function Login({login}) {
                         className='border-b-4 border-gray-200 w-3/4 focus:outline-none focus:border-purple-400 transition duration-500 placeholder-grey-300'
                         type='text'
                         name='email'
-                        value={loginData.email}
+                        value={signupData.email}
                         onChange={(event) => onChange(event)}
                         placeholder='email'
                     />
@@ -60,7 +60,7 @@ export default function Login({login}) {
                         className='border-b-4 border-gray-200 w-3/4 focus:outline-none focus:border-purple-400 transition duration-500 placeholder-grey-300'
                         type='password'
                         name='password'
-                        value={loginData.password}
+                        value={signupData.password}
                         onChange={(event) => onChange(event)}
                         placeholder='password'
                     />
