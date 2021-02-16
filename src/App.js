@@ -33,6 +33,7 @@ function App() {
         if(result.token){
           localStorage.setItem('token', result.token)
           setUserId(result.userId);
+          localStorage.setItem('userId', result.userId);
         } else {
           return console.log('no signup for you')
         }
@@ -59,6 +60,7 @@ function App() {
             console.log(result.token)
             localStorage.setItem('token', result.token)
             setUserId(result.userId)
+            localStorage.setItem('userId', result.userId)
           } else {
             return console.log('you shall not pass')
           }

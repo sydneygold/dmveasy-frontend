@@ -3,15 +3,15 @@ import RenewalForm from './RenewalForm.js';
 import Uploads from './Uploads.js';
 
 
-const GetStarted = () => {
+const GetStarted = ({ userId }) => {
 
   let existingToken = localStorage.getItem("token")
 
   return (
     <>
     {existingToken
-      ? <RenewalForm />
-      : <Uploads />
+      ? <Uploads userId={userId} />
+      : <RenewalForm userId={userId}/>
     }
     </>
   );
