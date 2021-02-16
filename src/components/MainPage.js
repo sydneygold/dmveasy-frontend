@@ -27,9 +27,13 @@ export default function MainPage() {
             Login
           </button>
         </Link>
-          <button className="m-4 pt-2 pb-2 pl-3 pr-3 text-white bg-yellow-400 font-sans Roboto font-semibold rounded-lg">
+        <Link to='/signup'>
+          <button 
+            className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
+          >
             Sign up
           </button>
+        </Link>
         </div>
       </header>
       <section>
