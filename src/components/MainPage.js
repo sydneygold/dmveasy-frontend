@@ -5,10 +5,6 @@ import Login from './Login'
 
 export default function MainPage() {
 
-  const onClick = () => {
-
-  }
-
   return (
     <>
       <header className="mainpage-header flex justify-between">
