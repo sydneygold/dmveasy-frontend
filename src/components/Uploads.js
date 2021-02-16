@@ -40,7 +40,7 @@ const Uploads = () => {
           <option>Social Security Card or W2</option>
           <option>Eye Exam (If Applicable)</option>
         </select>
-        <input multiple type='file' name='image' onChange={onChange}></input>
+        <input type='file' name='image' onChange={onChange}></input>
         <button type='submit'>Convert</button>
       </form>
     </div>
