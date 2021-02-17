@@ -6,48 +6,39 @@ const RenewalForm = () => {
   const baseURL = 'http://localhost:2021/anvil'
 
   const [formData, setFormData] = useState({
-    SuffiX: '',
-    ApplicantHeight: '',
-    ApplicantWeight: '',
-    ApplicantHairColor: '',
-    ApplicantEyeColor: '',
-    DLIDNumber: '',
-    DOBMonth: '',
-    DrivingPrivilegeNo: true,
-    DrivingPrivilegeYes: true,
-    OtherStateNo: true,
-    OtherStateYes: true,
-    SafetyNo: true,
-    SafetyYes: true,
-    Required: true,
-    Not: true,
-    DOBDay: '',
-    DOBYear: ''
+    applicantSuffix: '',
+    applicantHeight: '',
+    applicantWeight: 0,
+    applicantHairColor: '',
+    applicantEyeColor: '',
+    DLIDnumber: '',
+    applicantDOBMonth: '',
+    applicantDOBDay: '',
+    applicantDOBYear: '',
+    currentMotorcyleEndorse: '',
+    retainMotorcyleEndorse: '',
+    drivingPrivilege: '',
+    outOfStateLicense: '',
+    outOfStateLicenseText: '',
+    drivingAbility: '',
+    applicantDLIDNumber: '',
+    visionCheck: '',
+    optometristEvalDate: '',
+    optometristSignDate: '',
+    optometristLicenseNumber: '',
+    optometristFullName: '',
+    optPhoneAreaCode: 0,
+    optPhone: 0,
+
   })
   
-  const [ COAddress, setCOAddress ] = useState({
-    street1: '',
-    city: '',
-    state: '',
-    zip: '',
-    country: ''
-  }) 
-
-  const [ COMailing, setCOMailing ] = useState({
-    street1: '',
-    city: '',
-    state: '',
-    zip: '',
-    country: ''
-  }) 
-  
-  const [ApplicantName, setApplicantName ] = useState({
+  const [applicantName, setApplicantName ] = useState({
     firstName: '',
-    lastName: '',
-    dob: '',
+    mi: '',
+    lastName: ''
   })
   
-  const [ OptometristAddress, setOptometristAddress ] = useState({
+  const [ residentAddress, setResidentAddress ] = useState({
     street1: '',
     city: '',
     state: '',
@@ -55,63 +46,65 @@ const RenewalForm = () => {
     country: ''
   }) 
 
-  const [ OptometristPhone, setOptometristPhone ] = useState({
-    num: '',
-    region: 'US',
-    baseRegion: 'US'
+  const [ mailingAddress, setMailingAddress ] = useState({
+    street1: '',
+    city: '',
+    state: '',
+    zip: '',
+    country: ''
   }) 
-
-  const [Name, setName ] = useState({
+  
+  const [applicantFullName, setApplicantFullName ] = useState({
     firstName: '',
-    lastName: '',
-    dob: '',
+    mi: '',
+    lastName: ''
   })
 
+  const [ optometristAddress, setOptometristAddress ] = useState({
+    street1: '',
+    city: '',
+    state: '',
+    zip: '',
+    country: ''
+  }) 
 
   const onChange = (event) => setFormData({...formData,
     [event.target.name]: event.target.value})
 
-  const onChangeApplicantName = (event) => setApplicantName({...ApplicantName,
+  const onChangeApplicantName = (event) => setApplicantName({...applicantName,
     [event.target.name]: event.target.value})
 
     
-  const onChangeCOAddress = (event) => setCOAddress({...COAddress,
+  const onChangeResidentAddress = (event) => setResidentAddress({...residentAddress,
     [event.target.name]: event.target.value})
       
-  const onChangeCOMailing = (event) => setCOMailing({...COMailing,
+  const onChangeMailingAddress = (event) => setMailingAddress({...mailingAddress,
     [event.target.name]: event.target.value})
 
-  const onChangeName = (event) => setName({...Name,
+  const onChangeApplicantFullName = (event) => setApplicantFullName({...applicantFullName,
     [event.target.name]: event.target.value})
 
-  const onChangeOptometristAddress = (event) => setOptometristAddress({...OptometristAddress,
+  const onChangeOptometristAddress = (event) => setOptometristAddress({...optometristAddress,
   [event.target.name]: event.target.value})
+  
+  const createRenewalForm = (formData, residentAddress, mailingAddress, applicantName, optometristAddress, applicantFullName) => {
 
-  const onChangeOptometristPhone = (event) => setOptometristPhone({...OptometristPhone,
-  [event.target.name]: event.target.value})
-
-  const createRenewalForm = (formData, COMailing, COAddress, ApplicantName, OptometristAddress, OptometristPhone, Name) => {
-    // console.log('form data and stuff', formData, COMailing, COAddress, ApplicantName, OptometristAddress, OptometristPhone, Name)
-
-  const userId = localStorage.getItem('userId')
+    const userId = localStorage.getItem('userId')
   
     fetch(baseURL, {
       method: 'POST',
       headers: {
                 'Accept': 'application/json',
-                // 'Access-Control-Allow-Origin': '*',
-                // 'Apikey': 'Wx80argqSv0H9JwdXERZXswx32AW6GAR',
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
                 userId,
                 formData, 
-                COMailing, 
-                COAddress, 
-                ApplicantName, 
-                OptometristAddress, 
-                OptometristPhone, 
-                Name
+                residentAddress, 
+                mailingAddress, 
+                applicantName, 
+                optometristAddress, 
+                applicantFullName
               })
             })
             .then((response) => response.json())
@@ -121,7 +114,7 @@ const RenewalForm = () => {
           
   const handleSubmit = (event) => {
     event.preventDefault();
-    createRenewalForm(formData, COMailing, COAddress, ApplicantName, OptometristAddress, OptometristPhone, Name);
+    createRenewalForm(formData, residentAddress, mailingAddress, applicantName, optometristAddress, applicantFullName);
   }
           
           return (
@@ -156,15 +149,15 @@ const RenewalForm = () => {
             type="text" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='Suffix'
+            name='applicantSuffix'
             placeholder='Suffix' />
             <br />
           <label>Height</label>
           <input 
-            type="integer" 
+            type="text" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='ApplicantHeight'
+            name='applicantHeight'
             placeholder='Height' />
             <br />
           <label>Weight:</label>
@@ -172,7 +165,7 @@ const RenewalForm = () => {
             type="integer" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='ApplicantWeight'
+            name='applicantWeight'
             placeholder='Weight' />
             <br />
           <label>Hair:</label>
@@ -180,7 +173,7 @@ const RenewalForm = () => {
             type="text" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='ApplicantHairColor'
+            name='applicantHairColor'
             placeholder='Hair Color' />
             <br />
           <label>Eye Color:</label>
@@ -188,7 +181,7 @@ const RenewalForm = () => {
             type="text" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='ApplicantEyeColor'
+            name='applicantEyeColor'
             placeholder='Eye Color' />
             <br />
           <label>Drivers License Number:</label>
@@ -196,21 +189,85 @@ const RenewalForm = () => {
             type="text" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='DLIDNumber'
+            name='DLIDnumber'
             placeholder='License Number' />
             <br />
-          <label></label>
+          <label>Month</label>
           <input 
-            type="integer" 
+            type="text" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='DOBMonth'
-            placeholder='Date of Birth' />
+            name='applicantDOBMonth'
+            placeholder='01' />
+            <br />
+          <label>Day</label>
+          <input 
+            type="text" 
+            onChange={(event) => onChange(event)} 
+            autoComplete='on'
+            name='applicantDOBDay'
+            placeholder='12' />
+            <br />
+          <label>Year</label>
+          <input 
+            type="text" 
+            onChange={(event) => onChange(event)} 
+            autoComplete='on'
+            name='applicantDOBYear'
+            placeholder='1987' />
+            <br />
+          <label>Current Motorcycle</label>
+          <input 
+            type="text" 
+            onChange={(event) => onChange(event)} 
+            autoComplete='on'
+            name='currentMotorcyleEndorse'
+            placeholder='Endorse?' />
+            <br />
+          <label>Retain Motorcycle</label>
+          <input 
+            type="text" 
+            onChange={(event) => onChange(event)} 
+            autoComplete='on'
+            name='retainMotorcyleEndorse'
+            placeholder='Endorse?' />
             <br />
           <label></label>
           <input 
             type="text" 
-            onChange={(event) => onChangeCOAddress(event)} 
+            onChange={(event) => onChange(event)} 
+            autoComplete='on'
+            name='drivingPrivilege'
+            placeholder='privilege' />
+            <br />
+          <label></label>
+          <input 
+            type="text" 
+            onChange={(event) => onChange(event)} 
+            autoComplete='on'
+            name='outOfStateLicense'
+            placeholder='out of state' />
+            <br />
+          <label></label>
+          <input 
+            type="text" 
+            onChange={(event) => onChange(event)} 
+            autoComplete='on'
+            name='outOfStateLicenseText'
+            placeholder='out of state text' />
+            <br />
+          <label></label>
+          <input 
+            type="text" 
+            onChange={(event) => onChange(event)} 
+            autoComplete='on'
+            name='drivingAbility'
+            placeholder='driving ability' />
+            <br />
+          <label></label>
+          <input 
+            type="text" 
+            onChange={(event) => onChangeResidentAddress(event)} 
             autoComplete='on'
             name='street1'
             placeholder='Street' />
@@ -218,7 +275,7 @@ const RenewalForm = () => {
           <label></label>
           <input 
             type="text" 
-            onChange={(event) => onChangeCOAddress(event)} 
+            onChange={(event) => onChangeResidentAddress(event)} 
             autoComplete='on'
             name='city'
             placeholder='City' />
@@ -226,7 +283,7 @@ const RenewalForm = () => {
           <label></label>
           <input 
             type="text" 
-            onChange={(event) => onChangeCOAddress(event)} 
+            onChange={(event) => onChangeResidentAddress(event)} 
             autoComplete='on'
             name='state'
             placeholder='State' />
@@ -234,7 +291,7 @@ const RenewalForm = () => {
           <label></label>
           <input 
             type="text" 
-            onChange={(event) => onChangeCOAddress(event)} 
+            onChange={(event) => onChangeResidentAddress(event)} 
             autoComplete='on'
             name='zip'
             placeholder='Zipcode' />
@@ -242,7 +299,7 @@ const RenewalForm = () => {
           <label></label>
           <input 
             type="text" 
-            onChange={(event) => onChangeCOAddress(event)} 
+            onChange={(event) => onChangeResidentAddress(event)} 
             autoComplete='on'
             name='country'
             placeholder='Country' />
@@ -250,7 +307,7 @@ const RenewalForm = () => {
           <label></label>
           <input 
             type="text" 
-            onChange={(event) => onChangeCOMailing(event)} 
+            onChange={(event) => onChangeMailingAddress(event)} 
             autoComplete='on'
             name='street1'
             placeholder='Street' />
@@ -258,7 +315,7 @@ const RenewalForm = () => {
           <label></label>
           <input 
             type="text" 
-            onChange={(event) => onChangeCOMailing(event)} 
+            onChange={(event) => onChangeMailingAddress(event)} 
             autoComplete='on'
             name='city'
             placeholder='City' />
@@ -266,7 +323,7 @@ const RenewalForm = () => {
           <label></label>
           <input 
             type="text" 
-            onChange={(event) => onChangeCOMailing(event)} 
+            onChange={(event) => onChangeMailingAddress(event)} 
             autoComplete='on'
             name='state'
             placeholder='State' />
@@ -274,7 +331,7 @@ const RenewalForm = () => {
           <label></label>
           <input 
             type="text" 
-            onChange={(event) => onChangeCOMailing(event)} 
+            onChange={(event) => onChangeMailingAddress(event)} 
             autoComplete='on'
             name='zip'
             placeholder='Zipcode' />
@@ -282,7 +339,7 @@ const RenewalForm = () => {
           <label></label>
           <input 
             type="text" 
-            onChange={(event) => onChangeCOMailing(event)} 
+            onChange={(event) => onChangeMailingAddress(event)} 
             autoComplete='on'
             name='country'
             placeholder='Country' />
@@ -290,7 +347,7 @@ const RenewalForm = () => {
           <label></label>
           <input 
             type="text" 
-            onChange={(event) => onChangeName(event)} 
+            onChange={(event) => onChangeApplicantFullName(event)} 
             autoComplete='on'
             name='firstName'
             placeholder='First Name' />
@@ -298,7 +355,7 @@ const RenewalForm = () => {
           <label></label>
           <input 
             type="text" 
-            onChange={(event) => onChangeName(event)} 
+            onChange={(event) => onChangeApplicantFullName(event)} 
             autoComplete='on'
             name='mi'
             placeholder='Middle Name' />
@@ -306,7 +363,7 @@ const RenewalForm = () => {
           <label></label>
           <input 
             type="text" 
-            onChange={(event) => onChangeName(event)} 
+            onChange={(event) => onChangeApplicantFullName(event)} 
             autoComplete='on'
             name='lastName'
             placeholder='Last Name' />
@@ -316,15 +373,23 @@ const RenewalForm = () => {
             type="integer" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='licenseNumber'
-            placeholder='Country' />
+            name='applicantDLIDNumber'
+            placeholder='DLID Number' />
             <br />
           <label></label>
           <input 
             type="text" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='DOE'
+            name='visionCheck'
+            placeholder='Vision Check' />
+            <br />
+          <label></label>
+          <input 
+            type="text" 
+            onChange={(event) => onChange(event)} 
+            autoComplete='on'
+            name='optometristEvalDate'
             placeholder='Date of Evaluation' />
             <br />
           <label></label>
@@ -332,7 +397,7 @@ const RenewalForm = () => {
             type="text" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='DateToday'
+            name='optometristSignDate'
             placeholder="Today's Date" />
             <br />
           <label></label>
@@ -340,7 +405,7 @@ const RenewalForm = () => {
             type="text" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='OptometristLicenseNumber'
+            name='optometristLicenseNumber'
             placeholder='Optometrist License Number' />
             <br />
           <label></label>
@@ -348,16 +413,8 @@ const RenewalForm = () => {
             type="text" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='OptometristName'
-            placeholder='Optimetrist Name' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='OptometristTitle'
-            placeholder='Title' />
+            name='optometristFullName'
+            placeholder='Optimetrist Full Name' />
             <br />
           <label></label>
           <input 
@@ -401,115 +458,19 @@ const RenewalForm = () => {
             <br />
           <label></label>
           <input 
-            type="text" 
-            onChange={(event) => onChangeOptometristPhone(event)} 
+            type="integer" 
+            onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='num'
+            name='optPhoneAreaCode'
             placeholder='(123)' />
             <br />
-          {/* <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeOptometristPhone(event)} 
-            autoComplete='on'
-            name='region'
-            placeholder='US' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeOptometristPhone(event)} 
-            autoComplete='on'
-            name='baseRegion'
-            placeholder='US' />
-            <br /> */}
-          <label></label>
-          <input 
-            type="boolean" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='DrivingPrivilegeNo'
-            placeholder='' />
-            <br />
-          <label></label>
-          <input 
-            type="boolean" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='DrivingPrivilegeYes'
-            placeholder='' />
-            <br />
-          <label></label>
-          <input 
-            type="boolean" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='OtherStateNo'
-            placeholder='' />
-            <br />
-          <label></label>
-          <input 
-            type="boolean" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='OtherStateYes'
-            placeholder='' />
-            <br />
-          <label></label>
-          <input 
-            type="boolean" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='SafetyNo'
-            placeholder='' />
-            <br />
-          <label></label>
-          <input 
-            type="boolean" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='SafetyYes'
-            placeholder='' />
-            <br />
-          <label></label>
-          <input 
-            type="boolean" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='Required'
-            placeholder='' />
-            <br />
-          <label></label>
-          <input 
-            type="boolean" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='Not'
-            placeholder='' />
-            <br />
-          <label></label>
-          <input 
-            type="boolean" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='Not'
-            placeholder='' />
-            <br />
           <label></label>
           <input 
             type="integer" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='DOBDAY'
-            placeholder='' />
-            <br />
-          <label></label>
-          <input 
-            type="integer" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='DOBYear'
-            placeholder='' />
+            name='optPhone'
+            placeholder='123-4567' />
             <br />
           <button type='submit' className=''>Submit Somthing</button>
         </form>
