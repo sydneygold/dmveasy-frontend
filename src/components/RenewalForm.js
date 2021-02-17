@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const RenewalForm = () => {
 
-  const PDFUrl = 'https://app.useanvil.com/api/v1/fill/2H1hdiXvYLA1abriziAV.pdf'
+  // const PDFUrl = 'https://app.useanvil.com/api/v1/fill/2H1hdiXvYLA1abriziAV.pdf'
   const baseURL = 'http://localhost:2021/anvil'
 
   const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ const RenewalForm = () => {
     optometristEvalDate: '',
     optometristSignDate: '',
     optometristLicenseNumber: '',
-    optometristFullName: '',
+    optometristTitle: '',
     optPhoneAreaCode: 0,
     optPhone: 0,
 
@@ -413,8 +413,8 @@ const RenewalForm = () => {
             type="text" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='optometristFullName'
-            placeholder='Optimetrist Full Name' />
+            name='optometristTitle'
+            placeholder='Optimetrist Title' />
             <br />
           <label></label>
           <input 
