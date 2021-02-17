@@ -27,9 +27,10 @@ const RenewalForm = () => {
     optometristSignDate: '',
     optometristLicenseNumber: '',
     optometristFullName: '',
+    optometristTitle: '',
     optPhoneAreaCode: 0,
     optPhone: 0,
-
+    applicantSignDate: ''
   })
   
   const [applicantName, setApplicantName ] = useState({
@@ -108,371 +109,365 @@ const RenewalForm = () => {
               })
             })
             .then((response) => response.json())
-            .then(result => console.log(result))
-              
-          }
+            .then(result => console.log(result))         
+  }
           
   const handleSubmit = (event) => {
     event.preventDefault();
     createRenewalForm(formData, residentAddress, mailingAddress, applicantName, optometristAddress, applicantFullName);
   }
           
-          return (
-    <div>
+  return (
+    <div className='main flex flex-col'>
+      <div className='header'>
+        <h1>Driver's License or ID Card Renewal Form</h1>
+        <p>Please enter your information as it appears on your current driver license or ID card.</p>
+      </div>
       <form onSubmit={handleSubmit} >
-          <label>First Name:</label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeApplicantName(event)} 
-            autoComplete='on'
-            name='firstName'
-            placeholder='First Name' />
-            <br />
-          <label>Mi:</label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeApplicantName(event)} 
-            autoComplete='on'
-            name='mi'
-            placeholder='Middle Name' />
-            <br />
-          <label>last Name:</label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeApplicantName(event)} 
-            autoComplete='on'
-            name='lastName'
+        <div className='applicant-name'>
+          <label>Applicant Name:
+            <input 
+              type="text" 
+              onChange={(event) => onChangeApplicantName(event)} 
+              autoComplete='on'
+              name='firstName'
+              placeholder='First Name' />
+            <input 
+              type="text" 
+              onChange={(event) => onChangeApplicantName(event)} 
+              autoComplete='on'
+              name='mi'
+              placeholder='Middle Name' />
+            <input 
+              type="text" 
+              onChange={(event) => onChangeApplicantName(event)} 
+              autoComplete='on'
+              name='lastName'
             placeholder='Last Name' />
-            <br />
-          <label>Suffix</label>
+            <input 
+              type="text" 
+              onChange={(event) => onChange(event)} 
+              autoComplete='on'
+              name='applicantSuffix'
+              placeholder='Suffix' />
+          </label>
+        </div>
+        <div className='applicant-physical'>
+          <label>Height
+            <input 
+              type="integer" 
+              onChange={(event) => onChange(event)} 
+              autoComplete='on'
+              name='applicantHeight'
+              placeholder='Height' />
+            </label>
+          <label>Weight:
+            <input 
+              type="integer" 
+              onChange={(event) => onChange(event)} 
+              autoComplete='on'
+              name='applicantWeight'
+              placeholder='Weight' />
+          </label>
+          <label>Hair Color:
+            <input 
+              type="text" 
+              onChange={(event) => onChange(event)} 
+              autoComplete='on'
+              name='applicantHairColor'
+              placeholder='Hair Color' />
+          </label>
+          <label>Eye Color:
+            <input 
+              type="text" 
+              onChange={(event) => onChange(event)} 
+              autoComplete='on'
+              name='applicantEyeColor'
+              placeholder='Eye Color' />
+          </label>
+        </div>
+        <div className='license-number'>
+          <label>Drivers License Number:
           <input 
             type="text" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='applicantSuffix'
-            placeholder='Suffix' />
-            <br />
-          <label>Height</label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='applicantHeight'
-            placeholder='Height' />
-            <br />
-          <label>Weight:</label>
-          <input 
-            type="integer" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='applicantWeight'
-            placeholder='Weight' />
-            <br />
-          <label>Hair:</label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='applicantHairColor'
-            placeholder='Hair Color' />
-            <br />
-          <label>Eye Color:</label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='applicantEyeColor'
-            placeholder='Eye Color' />
-            <br />
-          <label>Drivers License Number:</label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='DLIDnumber'
+            name='DLIDNumber'
             placeholder='License Number' />
-            <br />
-          <label>Month</label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='applicantDOBMonth'
-            placeholder='01' />
-            <br />
-          <label>Day</label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='applicantDOBDay'
-            placeholder='12' />
-            <br />
-          <label>Year</label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='applicantDOBYear'
-            placeholder='1987' />
-            <br />
-          <label>Current Motorcycle</label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='currentMotorcyleEndorse'
-            placeholder='Endorse?' />
-            <br />
-          <label>Retain Motorcycle</label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='retainMotorcyleEndorse'
-            placeholder='Endorse?' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='drivingPrivilege'
-            placeholder='privilege' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='outOfStateLicense'
-            placeholder='out of state' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='outOfStateLicenseText'
-            placeholder='out of state text' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='drivingAbility'
-            placeholder='driving ability' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeResidentAddress(event)} 
-            autoComplete='on'
-            name='street1'
-            placeholder='Street' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeResidentAddress(event)} 
-            autoComplete='on'
-            name='city'
-            placeholder='City' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeResidentAddress(event)} 
-            autoComplete='on'
-            name='state'
-            placeholder='State' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeResidentAddress(event)} 
-            autoComplete='on'
-            name='zip'
-            placeholder='Zipcode' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeResidentAddress(event)} 
-            autoComplete='on'
-            name='country'
-            placeholder='Country' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeMailingAddress(event)} 
-            autoComplete='on'
-            name='street1'
-            placeholder='Street' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeMailingAddress(event)} 
-            autoComplete='on'
-            name='city'
-            placeholder='City' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeMailingAddress(event)} 
-            autoComplete='on'
-            name='state'
-            placeholder='State' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeMailingAddress(event)} 
-            autoComplete='on'
-            name='zip'
-            placeholder='Zipcode' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeMailingAddress(event)} 
-            autoComplete='on'
-            name='country'
-            placeholder='Country' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeApplicantFullName(event)} 
-            autoComplete='on'
-            name='firstName'
-            placeholder='First Name' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeApplicantFullName(event)} 
-            autoComplete='on'
-            name='mi'
-            placeholder='Middle Name' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeApplicantFullName(event)} 
-            autoComplete='on'
-            name='lastName'
-            placeholder='Last Name' />
-            <br />
-          <label></label>
+          </label>
+        </div>
+        <div className='dob flex justify-evenly'>
+          <label>Date of Birth</label>
           <input 
             type="integer" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='applicantDLIDNumber'
-            placeholder='DLID Number' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='visionCheck'
-            placeholder='Vision Check' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='optometristEvalDate'
-            placeholder='Date of Evaluation' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='optometristSignDate'
-            placeholder="Today's Date" />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='optometristLicenseNumber'
-            placeholder='Optometrist License Number' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='optometristFullName'
-            placeholder='Optimetrist Full Name' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeOptometristAddress(event)} 
-            autoComplete='on'
-            name='street1'
-            placeholder='Street' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeOptometristAddress(event)} 
-            autoComplete='on'
-            name='city'
-            placeholder='City' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeOptometristAddress(event)} 
-            autoComplete='on'
-            name='state'
-            placeholder='State' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeOptometristAddress(event)} 
-            autoComplete='on'
-            name='zip'
-            placeholder='Zipcode' />
-            <br />
-          <label></label>
-          <input 
-            type="text" 
-            onChange={(event) => onChangeOptometristAddress(event)} 
-            autoComplete='on'
-            name='country'
-            placeholder='Country' />
-            <br />
-          <label></label>
+            name='DOBMonth'
+            placeholder='Month' />
           <input 
             type="integer" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='optPhoneAreaCode'
-            placeholder='(123)' />
-            <br />
-          <label></label>
+            name='DOBDAY'
+            placeholder='Day' />
           <input 
             type="integer" 
             onChange={(event) => onChange(event)} 
             autoComplete='on'
-            name='optPhone'
-            placeholder='123-4567' />
-            <br />
-          <button type='submit' className=''>Submit Somthing</button>
+            name='DOBYear'
+            placeholder='Year' />
+        </div>
+        <div className='residential'>
+          <label>Residential Address:
+            <input 
+              type="text" 
+              onChange={(event) => onChangeResidentAddress(event)} 
+              autoComplete='on'
+              name='street1'
+              placeholder='Street' />
+            <input 
+              type="text" 
+              onChange={(event) => onChangeResidentAddress(event)} 
+              autoComplete='on'
+              name='city'
+              placeholder='City' />
+            <input 
+              type="text" 
+              onChange={(event) => onChangeResidentAddress(event)} 
+              autoComplete='on'
+              name='state'
+              placeholder='State' />
+            <input 
+              type="text" 
+              onChange={(event) => onChangeResidentAddress(event)} 
+              autoComplete='on'
+              name='zip'
+              placeholder='Zipcode' />
+          </label>
+        </div>
+        <div className='mailing'>
+          <label>Mailing Address:
+            <input 
+              type="text" 
+              onChange={(event) => onChangeMailingAddress(event)} 
+              autoComplete='on'
+              name='street1'
+              placeholder='Street' />
+            <input 
+              type="text" 
+              onChange={(event) => onChangeMailingAddress(event)} 
+              autoComplete='on'
+              name='city'
+              placeholder='City' />
+            <input 
+              type="text" 
+              onChange={(event) => onChangeMailingAddress(event)} 
+              autoComplete='on'
+              name='state'
+              placeholder='State' />
+            <input 
+              type="text" 
+              onChange={(event) => onChangeMailingAddress(event)} 
+              autoComplete='on'
+              name='zip'
+              placeholder='Zipcode' />
+          </label>
+        </div>
+        <div className='questions flex flex-col'>
+            <label>Is your driving privilege under suspension, revocation, or denial in Colorado or any other state?
+              <input
+                type='radio'
+                value='No'
+                name='drivingPrivilege'
+              /> No
+              <input
+                type='radio'
+                value='Yes'
+                name='drivingPrivilege'
+              /> Yes
+            </label>
+            <label>Do you have a valid driver license from any other state?
+              <input
+                type='radio'
+                value='No'
+                name='outOfStateLicense'
+              /> No
+              <input
+                type='radio'
+                value='Yes'
+                name='outOfStateLicense'
+              /> Yes
+            </label>
+            <label>
+              If yes, please enter the State:
+              <input 
+              type="text" 
+              onChange={(event) => onChange(event)} 
+              name='outOfStateLicenseText'
+              placeholder='CA' />
+            </label>
+            <label>
+              Do you currently possess a Motorcycle endorsement?
+              <input
+                  type='radio'
+                  value='No'
+                  name='currentMotorcyleEndorse'
+                /> No
+                <input
+                  type='radio'
+                  value='Yes'
+                  name='currentMotorcyleEndorse'
+                /> Yes
+            </label>
+            <label>
+              Do you wish to retain this Motorcycle endorsement?
+              <input
+                  type='radio'
+                  value='No'
+                  name='retainMotorcyleEndorse'
+                /> No
+                <input
+                  type='radio'
+                  value='Yes'
+                  name='retainMotorcyleEndorse'
+                /> Yes
+            </label>
+            <label>
+            During the past 2 years have you had any physical, mental, or emotional conditions that would interfere with your ability to safely operate a motor vehicle including heart problems, diabetes, paralysis, epilepsy, seizures, lapses of consciousness, or dizziness?
+              <input
+                  type='radio'
+                  value='No'
+                  name='drivingAbility'
+                /> No
+                <input
+                  type='radio'
+                  value='Yes'
+                  name='drivingAbility'
+                /> Yes
+            </label>
+        </div>
+        <div className='optometrist flex flex-col'>
+          <h2 className='font-semibold'>Vision Examination Result</h2>
+          <label>Applicant Full Name:
+            <input 
+              type="text" 
+              onChange={(event) => onChangeApplicantFullName(event)} 
+              autoComplete='on'
+              name='firstName'
+              placeholder='First Name' />
+            <input 
+              type="text" 
+              onChange={(event) => onChangeApplicantFullName(event)} 
+              autoComplete='on'
+              name='mi'
+              placeholder='Middle Name' />
+            <input 
+              type="text" 
+              onChange={(event) => onChangeApplicantFullName(event)} 
+              autoComplete='on'
+              name='lastName'
+              placeholder='Last Name' />
+          </label>
+          <label>Applicant License Number:
+            <input 
+              type="integer" 
+              onChange={(event) => onChange(event)} 
+              autoComplete='on'
+              name='applicantDLIDNumber'
+              placeholder='License Number (no dashes)' />
+          </label>
+          <label>Optometrist information
+            <input 
+              type="text" 
+              onChange={(event) => onChange(event)} 
+              autoComplete='on'
+              name='optometristFullName'
+              placeholder='Optimetrist Full Name' />
+            <input 
+              type="text" 
+              onChange={(event) => onChange(event)} 
+              autoComplete='on'
+              name='optometristTitle'
+              placeholder='Title' />
+            <input 
+              type="text" 
+              onChange={(event) => onChange(event)} 
+              autoComplete='on'
+              name='optometristLicenseNumber'
+              placeholder='Optometrist License Number' />
+            <label>Phone Number:
+              <input 
+                type="text" 
+                onChange={(event) => onChange(event)} 
+                autoComplete='on'
+                name='optPhoneAreaCode'
+                placeholder='303' />
+              <input 
+                type="text" 
+                onChange={(event) => onChange(event)} 
+                autoComplete='on'
+                name='optPhone'
+                placeholder='1234567' />
+            </label>
+            <label>Address:
+              <input 
+                type="text" 
+                onChange={(event) => onChangeOptometristAddress(event)} 
+                autoComplete='on'
+                name='street1'
+                placeholder='Street' />
+              <input 
+                type="text" 
+                onChange={(event) => onChangeOptometristAddress(event)} 
+                autoComplete='on'
+                name='city'
+                placeholder='City' />
+              <input 
+                type="text" 
+                onChange={(event) => onChangeOptometristAddress(event)} 
+                autoComplete='on'
+                name='state'
+                placeholder='State' />
+              <input 
+                type="text" 
+                onChange={(event) => onChangeOptometristAddress(event)} 
+                autoComplete='on'
+                name='zip'
+                placeholder='Zipcode' />
+            </label>
+          </label>
+          <div>
+            <p>
+              I have examined the above stated applicant's vision and found it to meet the minimum of 20/40 in the better eye as required by law.
+            </p>
+            <input
+              type='radio'
+              value='No'
+              name='visionCheck'
+            /> No
+            <input
+              type='radio'
+              value='Yes'
+              name='visionCheck'
+            /> Yes
+          </div>
+          <label>
+            Date of Evalution:
+            <input 
+              type="text" 
+              onChange={(event) => onChange(event)} 
+              autoComplete='on'
+              name='optometristEvalDate'
+              placeholder='MM/DD/YYYY' />
+          </label>      
+          <input 
+            type="text" 
+            onChange={(event) => onChange(event)} 
+            autoComplete='on'
+            name='applicantSignDate'
+            placeholder='MM/DD/YYYY' />
+        </div>
+          <button type='submit' className=''>Submit</button>
         </form>
     </div>
   );
