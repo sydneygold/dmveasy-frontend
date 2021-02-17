@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const RenewalForm = () => {
 
   const PDFUrl = 'https://app.useanvil.com/api/v1/fill/2H1hdiXvYLA1abriziAV.pdf'
-  const baseURL = `http://localhost:5001/dmveasy-a82ea/us-central1/upload`
+  const baseURL = 'http://localhost:2021/anvil'
 
   const [formData, setFormData] = useState({
     SuffiX: '',
@@ -91,16 +91,20 @@ const RenewalForm = () => {
   [event.target.name]: event.target.value})
 
   const createRenewalForm = (formData, COMailing, COAddress, ApplicantName, OptometristAddress, OptometristPhone, Name) => {
-    console.log('form data and stuff', formData, COMailing, COAddress, ApplicantName, OptometristAddress, OptometristPhone, Name)
+    // console.log('form data and stuff', formData, COMailing, COAddress, ApplicantName, OptometristAddress, OptometristPhone, Name)
+
+  const userId = localStorage.getItem('userId')
+  
     fetch(baseURL, {
       method: 'POST',
       headers: {
                 'Accept': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                // 'Access-Control-Allow-Origin': '*',
                 // 'Apikey': 'Wx80argqSv0H9JwdXERZXswx32AW6GAR',
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
+                userId,
                 formData, 
                 COMailing, 
                 COAddress, 
@@ -112,6 +116,7 @@ const RenewalForm = () => {
             })
             .then((response) => response.json())
             .then(result => console.log(result))
+              
           }
           
   const handleSubmit = (event) => {
