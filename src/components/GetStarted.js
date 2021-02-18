@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 
 const GetStarted = ({logout}) => {
 
+  const currentToken = localStorage.getItem('token')
+
   return (
       <div className='h-screen flex flex-col w-full'>
         <div className='h-1/6 flex justify-between'>
@@ -27,21 +29,30 @@ const GetStarted = ({logout}) => {
                 Home
               </button>
             </Link>
-            <Link to='/'>
-              <button onClick={logout}
-                className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
-              >
-                Logout
-              </button>
-            </Link>
+            {
+              !currentToken
+              ? <Link to='/login'>
+                  <button 
+                  className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
+                  >
+                  Login
+                  </button>
+                </Link>
+              : <button 
+                  onClick={logout} 
+                  className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
+                  >
+                  Logout
+                </button>
+            }
           </div>
         </div>
-        <div className='h-4/6 flex flex-col md:flex-row items-center mt-2 mb-4 pt-12'>
+        <div className='h-4/6 w-full flex flex-col md:flex-row items-center mt-2 mb-4 pt-12'>
           <img 
             src={mountainImage}
-            className='object-cover h-full w-full'
+            className='object-cover h-full w-3/4'
           />
-          <div className='h-full flex flex-col divide-y divide-gray-300 mx-4'>
+          <div className='h-full w-1/4 flex flex-col divide-y divide-gray-300 mx-4'>
             <div className="h-full w-full my-6 md:my-0 flex flex-col justify-center">
               <div className='flex justify-center'>
                 <Link to='/renewalform'>
@@ -79,5 +90,4 @@ const GetStarted = ({logout}) => {
       </div>
   );
 }
-
 export default GetStarted;

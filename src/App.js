@@ -4,26 +4,20 @@ import MainPage from './components/MainPage';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import GetStarted from './components/GetStarted';
-import Footer from './components/Footer';
-import Faq from './components/Faq'
 import Uploads from './components/uploads/Uploads';
 import RenewalForm from './components/RenewalForm';
 import { Route, Switch } from 'react-router-dom';
-
+import Footer from './components/Footer'
+import Faq from './components/Faq'
 const baseURL = `http://localhost:5001/dmveasy-a82ea/us-central1/signIn`
-
 function App() {
-
   const [userId, setUserId] = useState('')
-
   let keysToRemove = ['token', 'userId']
-
   const logout = () => {
     keysToRemove.forEach( key => {
       localStorage.removeItem(key);
     })
   }
-
   const signup = (email, password) => {
     console.log(email, password)
     fetch('http://localhost:5001/dmveasy-a82ea/us-central1/signUp', {
@@ -51,7 +45,6 @@ function App() {
         }
     });
   }
-  
   const login = (email, password) => {
     console.log('email + password', email, password)
     fetch(baseURL, {
@@ -78,9 +71,7 @@ function App() {
           }
       });
     }
-  
   return (
-    <>
     <div className="App">
       <Switch>
         <Route exact path='/' render={(routerProps) => {
@@ -99,6 +90,10 @@ function App() {
           return <GetStarted logout={logout} userId={userId} {...routerProps}/> 
         }} 
           />
+        <Route path='/faq' render={(routerProps) => {
+          return <Faq logout={logout} userId={userId} {...routerProps}/> 
+        }} 
+          />
         <Route path='/uploads' render={(routerProps) => {
           return <Uploads userId={userId} {...routerProps}/> 
         }} 
@@ -107,16 +102,9 @@ function App() {
           return <RenewalForm userId={userId} {...routerProps}/> 
         }} 
           />
-          <Route path='/faq' render={(routerProps) => {
-            return <Faq {...routerProps}/>
-          }}
-          />
       </Switch>
       <Footer/>
     </div>
-      <Footer />
-      </>
   );
 }
-
 export default App;
