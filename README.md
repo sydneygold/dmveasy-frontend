@@ -14,7 +14,7 @@
     ·
     <a href="https://www.youtube.com/watch?v=-CKjlRJCqoM&feature=youtu.be">View Demo Video</a>
     ·
-    <a href="https://github.com/tiffanynk/trash-panda-fe/issues">Report Bug</a>
+    <a href="https://github.com/MusicMeier/DMVeasy-backend/issues">Report Bug</a>
     ·
     <a href="https://github.com/tiffanynk/trash-panda-fe/issues">Request Feature</a>
   </p>
