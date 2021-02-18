@@ -1,6 +1,6 @@
 import React from 'react';
 import RenewalForm from './RenewalForm.js';
-import Uploads from './Uploads.js';
+import Uploads from './uploads/Uploads.js';
 
 const GetStarted = () => {
 
@@ -9,8 +9,8 @@ const GetStarted = () => {
   return (
     <>
     {existingToken
-      ? <RenewalForm />
-      : <Uploads />
+      ? <Uploads />
+      : <RenewalForm />
     }
     </>
   );
