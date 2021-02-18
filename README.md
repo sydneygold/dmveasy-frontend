@@ -85,9 +85,9 @@ You are now ready to start using DMVeasy!<br>
 <h2>Future Plans</h2>
 
 We're looking forward to rolling-out the following features:
-<li>Creating an E-Sign.</li>
+<li>Creating an E-Sign</li>
 <li>Other PDF files</li>
-<li>Swipe payment system</li>
+<li>Stripe payment system</li>
 
  <h2>Contact</h2>
 <a href="https://www.linkedin.com/in/musicmeier/"><img src="https://user-images.githubusercontent.com/68958970/97038321-a07f9600-1538-11eb-90f4-baa2d81a0664.png" alt="Music Meier" style="width:10px;height:10px;"></a>Music Meier :musical_score:<br>
