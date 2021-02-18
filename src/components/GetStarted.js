@@ -9,8 +9,8 @@ const GetStarted = () => {
   return (
     <>
     {existingToken
-      ? <RenewalForm />
-      : <Uploads />
+      ? <Uploads />
+      : <RenewalForm />
     }
     </>
   );
