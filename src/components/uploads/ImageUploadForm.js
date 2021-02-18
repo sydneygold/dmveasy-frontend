@@ -30,7 +30,7 @@ export default function ImageUploadForm({ setChecked, checked }) {
         }
     }
 
-    const onChange = (event) => {
+    const onChangeFileSelect = (event) => {
         if ( event.target.files[0] !== undefined) {
             setImage({
                 image: event.target.files[0]
@@ -50,7 +50,7 @@ export default function ImageUploadForm({ setChecked, checked }) {
               <option>Social Security Card or W2</option>
               <option>Eye Exam (If Applicable)</option>
             </select>
-            <input type='file' name='image' onChange={onChange}></input>
+            <input type='file' name='image' onChange={onChangeFileSelect}></input>
             <button disabled={image === "" ? true : false} id="upload-button" type='submit'>Upload</button>
         </form>
     )

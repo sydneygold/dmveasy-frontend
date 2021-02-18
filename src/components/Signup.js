@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/colorado-logo.png';
 
-export default function Signup({signup}) {
+export default function Signup({signup, history}) {
 
     const [signupData, setSignupData] = useState({
         email: '',
@@ -18,6 +18,7 @@ export default function Signup({signup}) {
         event.preventDefault()
         signup(signupData.email, signupData.password)
         console.log('logged in')
+        history.push('/getstarted')
     }
 
     return (

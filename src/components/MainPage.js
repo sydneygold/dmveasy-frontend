@@ -23,27 +23,32 @@ export default function MainPage({logout}) {
         <div className="flex items-center pl-12 pt-8 pb-8 pr-12">
         {
           !currentToken
-          ? <Link to='/login'>
+          ? <> 
+              <Link to='/login'>
+                <button 
+                className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
+                >
+                Login
+                </button>
+              </Link>
+              <Link to='/signup'>
               <button 
-              className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
-              >
-              Login
+                className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
+                >
+                Sign up
               </button>
-            </Link>
-          : <button 
+              </Link>
+            </>
+          : 
+          <Link>
+            <button 
               onClick={logout} 
               className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
-              >
+            >
               Logout
             </button>
+          </Link>
         }
-        <Link to='/signup'>
-          <button 
-            className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
-            >
-            Sign up
-          </button>
-        </Link>
         </div>
       </header>
       <section>
@@ -73,8 +78,7 @@ export default function MainPage({logout}) {
           About Us
         </h2>
         <p className="font-sans Roboto pr-10 mb-12">
-          Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.
-        </p>
+          Welcome to DMVeasy, the newest way to make your day a little easier. It’s an easy way to make sure all your paperwork is in order before heading to the DMV! All you have to do is sign up, submit photos of all your required documents and fill out one form. After you’ve uploaded all of this information a DMV employee will make sure everything is in order before approving your appointment. Never get sent home for more paperwork from the DMV again!        </p>
         </div>
       </section>
     </div>

@@ -17,6 +17,7 @@ function App() {
     keysToRemove.forEach( key => {
       localStorage.removeItem(key);
     })
+    
   }
   const signup = (email, password) => {
     console.log(email, password)
@@ -46,7 +47,6 @@ function App() {
     });
   }
   const login = (email, password) => {
-    console.log('email + password', email, password)
     fetch(baseURL, {
       method: 'POST',
             headers: {
@@ -60,9 +60,7 @@ function App() {
         })
       .then((response) => response.json())
       .then((result) => {
-          console.log('result', result)
           if(result.token){
-            console.log(result.token)
             localStorage.setItem('token', result.token)
             setUserId(result.userId)
             localStorage.setItem('userId', result.userId)
