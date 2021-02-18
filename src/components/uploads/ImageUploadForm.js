@@ -3,8 +3,7 @@ import React, { useState } from 'react'
 export default function ImageUploadForm({ setChecked, checked }) {
 
     const [ folder, setFolder ] = useState('Proof of Residence (1)');
-    const [ image, setImage] = useState(null);
-    const [ isButtonDisabled, setButtonDisabled ] = useState(true)
+    const [ image, setImage] = useState("");
     const userId = localStorage.getItem('userId');
 
     const onFormSubmit = (event) => {
@@ -32,10 +31,13 @@ export default function ImageUploadForm({ setChecked, checked }) {
     }
 
     const onChange = (event) => {
-        setImage({
-          image: event.target.files[0]
-        });
-        setButtonDisabled(!isButtonDisabled)
+        if ( event.target.files[0] !== undefined) {
+            setImage({
+                image: event.target.files[0]
+            });
+        } else {
+            setImage("")
+        }
     };
 
     return (
@@ -49,7 +51,7 @@ export default function ImageUploadForm({ setChecked, checked }) {
               <option>Eye Exam (If Applicable)</option>
             </select>
             <input type='file' name='image' onChange={onChange}></input>
-            <button disabled={isButtonDisabled ? true : false} id="upload-button" type='submit'>Upload</button>
+            <button disabled={image === "" ? true : false} id="upload-button" type='submit'>Upload</button>
         </form>
     )
 }
