@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../images/colorado-logo.png'
+import logo from '../images/DMVeasybannerlogo.png';
 
 const RenewalForm = () => {
 
@@ -121,7 +121,7 @@ const RenewalForm = () => {
           
   return (
     <div className='flex flex-col justify-center'>
-      <img className='pt-4 object-contain h-16' src={logo} alt='colorado-logo'/>
+      <img className='pt-4 object-contain h-36' src={logo} alt='colorado-logo'/>
       <div className='flex justify-evenly border-b-4 border-green-700'>
         <div className='header flex flex-col'>
           <h1 className='font-serif Georgia font-black text-3xl'>

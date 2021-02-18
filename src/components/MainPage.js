@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../images/colorado-logo.png';
+import logo from '../images/DMVeasybannerlogo.png';
 import { Link } from 'react-router-dom';
 
 export default function MainPage({logout}) {
@@ -13,12 +13,8 @@ export default function MainPage({logout}) {
           <img 
             src={logo} 
             alt="Colorado logo"
-            className="h-24"
+            className="h-36"
             />
-          <h1 className="font-serif Georgia font-black text-3xl">DMVEASY</h1>
-          <p className="font-sans Roboto font-normal text-sm italic">
-            Making going to the DMV easier since 2021
-          </p>
         </div>
         <div className="flex items-center pl-12 pt-8 pb-8 pr-12">
         {
