@@ -4,10 +4,11 @@ import MainPage from './components/MainPage';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import GetStarted from './components/GetStarted';
+import Footer from './components/Footer';
+import Faq from './components/Faq'
 import Uploads from './components/uploads/Uploads';
 import RenewalForm from './components/RenewalForm';
 import { Route, Switch } from 'react-router-dom';
-import Footer from './components/Footer'
 
 const baseURL = `http://localhost:5001/dmveasy-a82ea/us-central1/signIn`
 
@@ -79,6 +80,7 @@ function App() {
     }
   
   return (
+    <>
     <div className="App">
       <Switch>
         <Route exact path='/' render={(routerProps) => {
@@ -105,9 +107,15 @@ function App() {
           return <RenewalForm userId={userId} {...routerProps}/> 
         }} 
           />
+          <Route path='/faq' render={(routerProps) => {
+            return <Faq {...routerProps}/>
+          }}
+          />
       </Switch>
       <Footer/>
     </div>
+      <Footer />
+      </>
   );
 }
 
