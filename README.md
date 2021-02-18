@@ -10,13 +10,9 @@
     DMVEasy is an innovative web-based application geared towards cutting back on paper waste by enabling users to upload and fill out documents online. 
     <br />
     <br />
-    <a href="https://trash-panda-shehacks.web.app/">View Website</a>
-    ·
-    <a href="https://www.youtube.com/watch?v=-CKjlRJCqoM&feature=youtu.be">View Demo Video</a>
+    <a href="https://youtu.be/SjDxr8reM9w">View Demo Video</a>
     ·
     <a href="https://github.com/MusicMeier/DMVeasy-backend/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/tiffanynk/trash-panda-fe/issues">Request Feature</a>
   </p>
 </p>
 <!-- TABLE OF CONTENTS -->
