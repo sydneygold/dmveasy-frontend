@@ -29,6 +29,7 @@ export default function Login({login, history}) {
                 <img 
                     className="h-24"
                     src={logo}
+                    alt=''
                 />
             </div>
             <form 
