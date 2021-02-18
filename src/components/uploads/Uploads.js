@@ -53,6 +53,7 @@ const Uploads = () => {
   return (
     <>
       <UploadsHeader/>
+      <div id="photo"></div>
       <div id="uploads-main">
         <section className="upload-section">
           <h1 className="title" id="uploads-title">Upload New Files</h1>
