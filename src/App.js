@@ -7,6 +7,7 @@ import GetStarted from './components/GetStarted';
 import Uploads from './components/uploads/Uploads';
 import RenewalForm from './components/RenewalForm';
 import { Route, Switch } from 'react-router-dom';
+import Footer from './components/Footer'
 
 const baseURL = `http://localhost:5001/dmveasy-a82ea/us-central1/signIn`
 
@@ -105,6 +106,7 @@ function App() {
         }} 
           />
       </Switch>
+      <Footer/>
     </div>
   );
 }
