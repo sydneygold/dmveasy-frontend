@@ -79,7 +79,8 @@ You are now ready to start using DMVeasy!<br>
  <li>Navigate to the FAQ page to learn what details you need.</li>
  <li>Then, navigate to the get started page to begin.</li>
  <li>Choose renewal form or go and upload your files.</li>
- <li>Once you've completed the process, you files will be oploaded for your convenience.</li>
+ <li>Once you've completed the process, your files will be uploaded for your convenience.</li>
+ <li>Eliminate paper waste.</li>
 </ol>
 
 <h2>Future Plans</h2>
