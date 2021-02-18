@@ -1,12 +1,11 @@
 import React from 'react'
 import logo from '../images/colorado-logo.png';
-import { Link, Route, Switch } from 'react-router-dom';
-import Login from './Login'
+import { Link } from 'react-router-dom';
 
 export default function MainPage() {
 
   return (
-    <>
+    <div className='h-screen w-full'>
       <header className="mainpage-header flex justify-between">
         <div className="pl-12 pt-8 pb-8 pr-12">
           <img 
@@ -65,6 +64,6 @@ export default function MainPage() {
         </p>
         </div>
       </section>
-    </>
+    </div>
   )
 }
