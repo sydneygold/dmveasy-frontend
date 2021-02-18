@@ -63,7 +63,7 @@ const Uploads = () => {
           />
         </section>
         <section className="upload-section">
-          <h1 className="title" id="checklist-title">CheckList</h1>
+          <h1 className="title" id="checklist-title">Checklist</h1>
           <div className="border-line"></div>
         <CheckList checked={checked}/>
         </section>

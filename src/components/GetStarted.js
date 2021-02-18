@@ -2,8 +2,6 @@ import React from 'react';
 import logo from '../images/colorado-logo.png';
 import mountainImage from '../images/paperAirplaneAndMountains.jpg';
 import { Link } from 'react-router-dom'
-import RenewalForm from './RenewalForm.js';
-import Uploads from './uploads/Uploads.js';
 
 const GetStarted = ({logout}) => {
 

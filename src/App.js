@@ -4,7 +4,7 @@ import MainPage from './components/MainPage';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import GetStarted from './components/GetStarted';
-import Uploads from './components/Uploads';
+import Uploads from './components/uploads/Uploads';
 import RenewalForm from './components/RenewalForm';
 import { Route, Switch } from 'react-router-dom';
 
