@@ -8,21 +8,20 @@ const GetStarted = ({logout}) => {
   // let existingToken = localStorage.getItem("token")
 
   return (
-    <>
       <div className='h-screen flex flex-col w-full'>
         <div className='h-1/6 flex justify-between'>
-          <div className="pl-12 pt-6  pr-12">
+          <div className="pl-12 pt-8 pr-12">
             <img 
               src={logo} 
               alt="Colorado logo"
-              className="h-1/2"
+              className="h-3/4"
             />
             <h1 className="font-serif Georgia font-black text-3xl">DMVEASY</h1>
           <p className="font-sans Roboto font-normal text-sm italic">
             Making going to the DMV easier since 2021
           </p>
           </div>
-          <div className="flex items-center pl-12 pt-2 pr-12">
+          <div className="flex flex-col md:flex-row items-center pl-12 pt-2 pr-12">
             <Link to='/'>
               <button 
                 className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
@@ -39,13 +38,13 @@ const GetStarted = ({logout}) => {
             </Link>
           </div>
         </div>
-        <div className='h-4/6 flex items-center mt-2 mb-4 pt-12'>
+        <div className='h-4/6 flex flex-col md:flex-row items-center mt-2 mb-4 pt-12'>
           <img 
             src={mountainImage}
             className='object-cover h-full w-full'
           />
           <div className='h-full flex flex-col divide-y divide-gray-300 mx-4'>
-            <div className="h-full w-full flex flex-col justify-center">
+            <div className="h-full w-full my-6 md:my-0 flex flex-col justify-center">
               <div className='flex justify-center'>
                 <Link to='/renewalform'>
                   <button 
@@ -61,7 +60,7 @@ const GetStarted = ({logout}) => {
                 </p>
               </div>
             </div>
-            <div className="h-full flex flex-col w-full justify-center">
+            <div className="h-full flex flex-col w-full justify-center py-6 md:py-0">
               <div className='w-full flex justify-center'>
                 <Link to='/uploads'>
                   <button 
@@ -80,7 +79,6 @@ const GetStarted = ({logout}) => {
           </div>
         </div>
       </div>
-    </>
   );
 }
 
