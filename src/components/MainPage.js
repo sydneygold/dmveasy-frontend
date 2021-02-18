@@ -2,7 +2,9 @@ import React from 'react'
 import logo from '../images/colorado-logo.png';
 import { Link } from 'react-router-dom';
 
-export default function MainPage() {
+export default function MainPage({logout}) {
+
+  const currentToken = localStorage.getItem('token')
 
   return (
     <div className='h-screen w-full'>
@@ -19,13 +21,22 @@ export default function MainPage() {
           </p>
         </div>
         <div className="flex items-center pl-12 pt-8 pb-8 pr-12">
-        <Link to='/login'>
-          <button 
-            className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
-            >
-            Login
-          </button>
-        </Link>
+        {
+          !currentToken
+          ? <Link to='/login'>
+              <button 
+              className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
+              >
+              Login
+              </button>
+            </Link>
+          : <button 
+              onClick={logout} 
+              className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
+              >
+              Logout
+            </button>
+        }
         <Link to='/signup'>
           <button 
             className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
