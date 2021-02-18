@@ -15,7 +15,7 @@ const Uploads = () => {
   }, [])
 
   const getUser = () => {
-    fetch('http://localhost:5001/dmveasy-a82ea/us-central1/getUser', {
+    fetch('https://us-central1-dmveasy-a82ea.cloudfunctions.net/getUser', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -35,7 +35,7 @@ const Uploads = () => {
 
   const updateUserSubmittedList = () => {
     if ( checked.length > 0 ) {
-      fetch('http://localhost:5001/dmveasy-a82ea/us-central1/updateUser', {
+      fetch('https://us-central1-dmveasy-a82ea.cloudfunctions.net/updateUser', {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
