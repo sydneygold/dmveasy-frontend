@@ -1,7 +1,7 @@
 * {
     margin: 0;
     font-family: font-sans Roboto;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 html {
@@ -12,10 +12,21 @@ body, #root, .App {
     height: 100%;
 }
 
+#photo {
+    display: flex;
+    justify-content: center;
+    background-image: url(./assets/airplane.jpg);
+    height: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-bottom: 30px;
+}
+
 #uploads-main {
     display: flex;
     flex-flow: row wrap;
-    height: 70%;
+    height: 50%;
     width: 100%;
 }
 
