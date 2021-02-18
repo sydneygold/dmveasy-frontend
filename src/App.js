@@ -13,15 +13,16 @@ const baseURL = `http://localhost:5001/dmveasy-a82ea/us-central1/signIn`
 function App() {
   const [userId, setUserId] = useState('')
   let keysToRemove = ['token', 'userId']
+  
   const logout = () => {
     keysToRemove.forEach( key => {
       localStorage.removeItem(key);
     })
-    
   }
+  
   const signup = (email, password) => {
     console.log(email, password)
-    fetch('http://localhost:5001/dmveasy-a82ea/us-central1/signUp', {
+    fetch('https://us-central1-dmveasy-a82ea.cloudfunctions.net/signUp', {
       method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -47,7 +48,7 @@ function App() {
     });
   }
   const login = (email, password) => {
-    fetch(baseURL, {
+    fetch('https://us-central1-dmveasy-a82ea.cloudfunctions.net/signIn', {
       method: 'POST',
             headers: {
                 'Accept': 'application/json',

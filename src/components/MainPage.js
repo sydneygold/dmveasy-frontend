@@ -8,7 +8,7 @@ export default function MainPage({logout}) {
 
   return (
     <div className='h-screen w-full'>
-      <header className="mainpage-header flex justify-between">
+      <header className="mainpage-header h-1/4 flex justify-between">
         <div className="pl-12 pt-8 pb-8 pr-12">
           <img 
             src={logo} 
@@ -59,7 +59,7 @@ export default function MainPage({logout}) {
           />
         </div>
       </section>
-      <section className="flex justify-between m-8 h-1/3 divide-x divide-gray-300">
+      <section className="flex justify-between m-8 h-1/4 divide-x mb-12 divide-gray-300">
         <div className="flex justify-center items-center h-full w-2/4">
           <Link to='/getstarted'>
             <button 
