@@ -68,10 +68,11 @@ To run this project, create a folder on your local environment where you can clo
 
 From your backend folder perform the following commands:<br>
 <li>Use this command in your terminal to install: <code>yarn install</code></li>
-<li>Then you should: <code>npm start</code></li>
+<li>Then you should: <code>npm start</code></li><br></br>
 
-From your frontend folder perform the following command: <code>yarn install</code><br>
-<li>Then you should: <code>npm start</code></li>
+From your frontend folder perform the following command: <br>
+<li>Run this in your temrinal: <code>yarn install</code></li>
+<li>Then you should: <code>npm start</code></li><br></br>
 You are now ready to start using DMVeasy!<br>
 
 <i>*Please note that some features are still a work in progress.</i>
