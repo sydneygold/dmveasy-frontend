@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/colorado-logo.png';
 
-export default function Login({login}) {
+export default function Login({login, history}) {
 
     const [loginData, setLoginData] = useState({
         email: '',
@@ -18,11 +18,12 @@ export default function Login({login}) {
         event.preventDefault()
         login(loginData.email, loginData.password)
         console.log('logged in')
+        history.push('/getstarted')
     }
 
     return (
         <div 
-            className='container max-w-md mx-auto md:max-w-2xl mt-16'
+            className='container h-screen max-w-md mx-auto md:max-w-2xl mt-16'
         >
             <div className='flex justify-center logo-login'>
                 <img 
