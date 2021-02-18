@@ -6,7 +6,7 @@ import CheckList from './CheckList'
 
 const Uploads = () => {
 
-  const [ checked, setChecked] = useState([])
+  const [ checked, setChecked ] = useState([])
 
   const userId = localStorage.getItem('userId');
 

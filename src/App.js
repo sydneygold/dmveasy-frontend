@@ -22,6 +22,7 @@ function App() {
     keysToRemove.forEach( key => {
       localStorage.removeItem(key);
     })
+    
   }
 
   const signup = (email, password) => {
@@ -53,7 +54,6 @@ function App() {
   }
   
   const login = (email, password) => {
-    console.log('email + password', email, password)
     fetch(baseURL, {
       method: 'POST',
             headers: {
@@ -67,9 +67,7 @@ function App() {
         })
       .then((response) => response.json())
       .then((result) => {
-          console.log('result', result)
           if(result.token){
-            console.log(result.token)
             localStorage.setItem('token', result.token)
             setUserId(result.userId)
             localStorage.setItem('userId', result.userId)
@@ -80,7 +78,6 @@ function App() {
     }
   
   return (
-    <>
     <div className="App">
       <Switch>
         <Route exact path='/' render={(routerProps) => {
@@ -106,16 +103,15 @@ function App() {
         <Route path='/renewalform' render={(routerProps) => {
           return <RenewalForm userId={userId} {...routerProps}/> 
         }} 
-          />
-          <Route path='/faq' render={(routerProps) => {
-            return <Faq {...routerProps}/>
-          }}
-          />
+        />
+        <Route path='/faq' render={(routerProps) => {
+          return <Faq {...routerProps}/>
+        }}
+        />
       </Switch>
       <Footer/>
     </div>
-      <Footer />
-      </>
+      
   );
 }
 
