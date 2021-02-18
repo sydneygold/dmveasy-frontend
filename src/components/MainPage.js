@@ -39,12 +39,15 @@ export default function MainPage({logout}) {
               </button>
               </Link>
             </>
-          : <button 
+          : 
+          <Link>
+            <button 
               onClick={logout} 
               className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg"
-              >
+            >
               Logout
             </button>
+          </Link>
         }
         </div>
       </header>
