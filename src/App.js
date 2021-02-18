@@ -4,6 +4,8 @@ import MainPage from './components/MainPage';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import GetStarted from './components/GetStarted';
+import Uploads from './components/Uploads';
+import RenewalForm from './components/RenewalForm';
 import { Route, Switch } from 'react-router-dom';
 
 const baseURL = `http://localhost:5001/dmveasy-a82ea/us-central1/signIn`
@@ -11,6 +13,14 @@ const baseURL = `http://localhost:5001/dmveasy-a82ea/us-central1/signIn`
 function App() {
 
   const [userId, setUserId] = useState('')
+
+  let keysToRemove = ['token', 'userId']
+
+  const logout = () => {
+    keysToRemove.forEach( key => {
+      localStorage.removeItem(key);
+    })
+  }
 
   const signup = (email, password) => {
     console.log(email, password)
@@ -83,7 +93,15 @@ function App() {
         }} 
           />
         <Route path='/getstarted' render={(routerProps) => {
-          return <GetStarted userId={userId} {...routerProps}/> 
+          return <GetStarted logout={logout} userId={userId} {...routerProps}/> 
+        }} 
+          />
+        <Route path='/uploads' render={(routerProps) => {
+          return <Uploads userId={userId} {...routerProps}/> 
+        }} 
+          />
+        <Route path='/renewalform' render={(routerProps) => {
+          return <RenewalForm userId={userId} {...routerProps}/> 
         }} 
           />
       </Switch>
