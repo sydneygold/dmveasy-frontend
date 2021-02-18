@@ -22,12 +22,13 @@ export default function Login({login}) {
 
     return (
         <div 
-            className='container max-w-md mx-auto md:max-w-2xl mt-16'
+            className='container max-w-md mx-auto md:max-w-2xl mt-16 h-screen'
         >
             <div className='flex justify-center logo-login'>
                 <img 
                     className="h-24"
                     src={logo}
+                    alt=''
                 />
             </div>
             <form 
