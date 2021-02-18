@@ -6,7 +6,7 @@ export default function CheckList({ checked }) {
         <table id="checklist-table">
         <tbody>
         <tr className="checklist-row">
-            <th className="column-header">Type</th>
+            <th className="column-header">Forms</th>
             <th className="column-header">Submitted</th>
             <th className="column-header">Approved</th>
         </tr>
@@ -20,7 +20,7 @@ export default function CheckList({ checked }) {
                 type="checkbox"
                 readOnly
             /></td>
-            <td><input className="checkbox" type="checkbox" value="submitted"/></td>
+            <td><input className="checkbox" type="hidden" value="submitted"/></td>
         </tr>
         <tr className="checklist-row">
             <td>Proof of Residence (2)</td>
@@ -32,7 +32,7 @@ export default function CheckList({ checked }) {
                 type="checkbox"
                 readOnly
             /></td>              
-            <td><input className="checkbox" type="checkbox" value="submitted"/></td>
+            <td><input className="checkbox" type="hidden" value="submitted"/></td>
         </tr>
         <tr className="checklist-row">
             <td>Birth Certificate or Valid Passport</td>
@@ -44,7 +44,7 @@ export default function CheckList({ checked }) {
                 type="checkbox"
                 readOnly
             /></td>              
-            <td><input className="checkbox" type="checkbox" value="submitted"/></td>
+            <td><input className="checkbox" type="hidden" value="submitted"/></td>
         </tr>
         <tr className="checklist-row">
             <td>Social Security Card or W2</td>
@@ -56,7 +56,7 @@ export default function CheckList({ checked }) {
                 type="checkbox"
                 readOnly
             /></td>              
-            <td><input className="checkbox" type="checkbox" value="submitted"/></td>
+            <td><input className="checkbox" type="hidden" value="submitted"/></td>
         </tr>
         <tr className="checklist-row">
             <td>Eye Exam (If Applicable)</td>
@@ -68,7 +68,7 @@ export default function CheckList({ checked }) {
                 type="checkbox"
                 readOnly
             /></td>              
-            <td><input className="checkbox" type="checkbox" value="submitted"/></td>
+            <td><input className="checkbox" type="hidden" value="submitted"/></td>
         </tr>
         </tbody>
         </table>
