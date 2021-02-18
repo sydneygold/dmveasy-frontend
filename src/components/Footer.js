@@ -7,7 +7,7 @@ export default function Footer() {
                     <h2 className='font-serif Georgia font-semibold text-white'>DMVeasy© 2021</h2>
                     <a className='text-white underline font-semibold font-sans Roboto' href='https://dmv.colorado.gov/ '>ColoradoDMV</a>
                     <a className='text-white underline font-semibold font-sans Roboto' href='/faq'>FAQ</a>
-                    <a className='text-white underline font-semibold font-sans Roboto' href='/'>Contact us</a>
+                    <a className='text-white underline font-semibold font-sans Roboto' href='https://github.com/sydneygold/dmveasy-frontend/blob/main/README.md'>Contact us</a>
                 </ul>
             </span>
         </div>

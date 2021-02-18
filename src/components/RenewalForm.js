@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import logo from '../images/DMVeasybannerlogo.png';
 
 const RenewalForm = () => {
 
-  // const PDFUrl = 'https://app.useanvil.com/api/v1/fill/2H1hdiXvYLA1abriziAV.pdf'
-  const baseURL = 'http://localhost:2021/anvil'
+  const baseURL = 'https://safe-mountain-48237.herokuapp.com/anvil';
 
   const [formData, setFormData] = useState({
     applicantSuffix: '',
@@ -110,10 +109,12 @@ const RenewalForm = () => {
                 applicantFullName
               })
             })
-            .then((response) => response.json())
-            .then(result => console.log(result))         
+            .then((response) => {
+              response.json();
+              return window.location.href='/getstarted';
+            })
   }
-          
+
   const handleSubmit = (event) => {
     event.preventDefault();
     createRenewalForm(formData, residentAddress, mailingAddress, applicantName, optometristAddress, applicantFullName);
@@ -132,7 +133,7 @@ const RenewalForm = () => {
           </p>
         </div>
       </div>
-      <form className='mx-auto pt-4 w-3/4' onSubmit={handleSubmit} >
+      <form className='mx-auto pt-4 w-3/4' onSubmit={handleSubmit}>
         <div className='applicant-name flex justify-between'>
           <label className='font-sans Roboto font-medium'>Applicant Name:</label>
             <input 
@@ -448,7 +449,7 @@ const RenewalForm = () => {
                 autoComplete='on'
                 name='optometristLicenseNumber'
                 placeholder='Medical License #' />
-              <label>Phone Number:</label>
+              <label className='font-sans Roboto font-medium pr-4'>Phone Number:</label>
                 <input 
                   type="text" 
                   onChange={(event) => onChange(event)} 
@@ -526,7 +527,15 @@ const RenewalForm = () => {
             </div>
         </div>
         <div className='applicant-sign'>
-          <label className='font-sans Roboto font-medium pr-4'>Applicant Signature</label>
+          <label className='font-sans Roboto font-medium pr-4'>Applicant Signature:</label>
+          <input 
+            type="text" 
+            onChange={(event) => onChange(event)} 
+            className='border-b-4 border-gray-200 focus:outline-none focus:border-blue-700 transition duration-500 placeholder-grey-300'
+            autoComplete='on'
+            name='applicantSignature'
+            placeholder='E-Signature' />
+          <label className='font-sans Roboto font-medium pr-4'>Signature Date:</label>
           <input 
             type="text" 
             onChange={(event) => onChange(event)} 
@@ -537,11 +546,11 @@ const RenewalForm = () => {
         </div>
         </div>
         <div>
-          <button 
-            type='submit' 
-            className='m-4 pt-2 pb-2 pl-4 pr-4 text-white bg-green-700 font-sans Roboto font-semibold rounded-lg'>
-              Submit
-          </button>
+            <button 
+              type='submit' 
+              className='m-4 pt-2 pb-2 pl-4 pr-4 text-white bg-green-700 font-sans Roboto font-semibold rounded-lg'>
+                Submit
+            </button>
           <Link to='/getstarted'>
             <button 
               className="m-4 pt-1 pb-1 pl-4 pr-4 text-yellow-400 border-4 border-solid border-yellow-400 font-sans Roboto font-semibold rounded-lg">

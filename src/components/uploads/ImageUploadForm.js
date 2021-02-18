@@ -51,7 +51,7 @@ export default function ImageUploadForm({ setChecked, checked }) {
               <option>Eye Exam (If Applicable)</option>
             </select>
             <input type='file' name='image' onChange={onChangeFileSelect}></input>
-            <button disabled={image === "" ? true : false} id="upload-button" type='submit'>Upload</button>
+            <button className='m-4 pt-2 pb-2 pl-4 pr-4 text-white bg-blue-700 font-sans Roboto font-semibold rounded-lg' disabled={image === "" ? true : false} id="upload-button" type='submit'>Upload</button>
         </form>
     )
 }
