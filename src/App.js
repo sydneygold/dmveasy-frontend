@@ -82,7 +82,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path='/' render={(routerProps) => {
-          return <MainPage {...routerProps}/> 
+          return <MainPage logout={logout} {...routerProps}/> 
         }} 
           />
         <Route path='/login' render={(routerProps) => {
