@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-import logo from '../images/colorado-logo.png';
+import logo from '../images/DMVeasybannerlogo.png';
 
 export default function Signup({signup, history}) {
 
@@ -27,9 +27,9 @@ export default function Signup({signup, history}) {
         >
             <div className='flex justify-center logo-signup'>
                 <img 
-                    className="h-24"
+                    className="h-32"
                     src={logo}
-                    alt=''
+                    alt='dmveasy banner'
                 />
             </div>
             <form 
