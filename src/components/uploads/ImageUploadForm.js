@@ -19,7 +19,7 @@ export default function ImageUploadForm({ setChecked, checked }) {
           formData.append('folder', folder);
           formData.append('image', image.image, image.image.name);
           
-          fetch('https://us-central1-dmveasy-a82ea.cloudfunctions.net/uploadImage', {
+          fetch('https://us-central1-dmveasy-a82ea.cloudfunctions.net/uploadFile', {
             method: 'POST',
             headers: {},
             body: formData
